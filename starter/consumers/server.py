@@ -12,6 +12,7 @@ import tornado.web
 logging.config.fileConfig(f"{Path(__file__).parents[0]}/logging.ini")
 
 
+import ksql
 from consumer import KafkaConsumer
 from models import Lines, Weather
 import topic_check
@@ -41,6 +42,8 @@ class MainHandler(tornado.web.RequestHandler):
 
 def run_server():
     """Runs the Tornado Server and begins Kafka consumption"""
+    # Configure KSQL
+    ksql.execute_statement()
     if topic_check.topic_exists("TURNSTILE_SUMMARY") is False:
         logger.fatal(
             "Ensure that the KSQL Command has run successfully before running the web server!"
