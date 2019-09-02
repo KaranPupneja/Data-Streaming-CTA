@@ -1,3 +1,6 @@
+"""
+ @author: Karan Pupneja
+ """
 """Defines core consumer functionality"""
 import logging
 
