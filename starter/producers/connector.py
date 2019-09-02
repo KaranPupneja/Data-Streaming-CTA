@@ -1,3 +1,6 @@
+""" 
+ @author: Karan Pupneja
+ """
 """Configures a Kafka Connector for Postgres Station data"""
 import json
 import logging
